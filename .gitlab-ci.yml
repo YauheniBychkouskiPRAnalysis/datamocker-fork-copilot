@@ -28,12 +28,15 @@ stages:
 build-job:
   stage: build
   script:
+    - dotnet workload restore
     - dotnet build
   tags:
     - macos
 
 unit-test-job:
   stage: test
+  needs:
+    - build-job
   script:
     - dotnet test
   tags:
