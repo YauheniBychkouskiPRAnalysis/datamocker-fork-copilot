@@ -7,14 +7,9 @@ stages:
 install-dotnet:
   stage: machine-setup
   script:
-    - sudo apt-get install build-essential procps curl file git
-    - test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-    - test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    - echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc    
-    - brew install wget
-    - wget https://dot.net/v1/dotnet-install.sh
-    - chmod +x dotnet-install.sh
-    - ./dotnet-install.sh
+    - add-apt-repository ppa:dotnet/backports
+    - apt-get update && \ apt-get install -y dotnet-sdk-9.0
+    - apt-get install -y dotnet-runtime-9.0
 
 install-snyk:
   stage: machine-setup
