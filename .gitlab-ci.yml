@@ -10,16 +10,17 @@ install-dotnet:
     - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     - brew
   tags:
-    - osx
+    - docker
 
 install-snyk:
   stage: machine-setup
   needs:
     - install-dotnet
   script:
+    - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     - brew
   tags:
-    - osx
+    - cluster
 
 build-job:
   stage: build
