@@ -6,15 +6,19 @@ stages:
 
 install-dotnet:
   stage: machine-setup
-  script: 
-   - brew
-   - wget
+  script:
+    - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"    
+    - brew install wget
+    - wget https://dot.net/v1/dotnet-install.sh
+    - chmod +x dotnet-install.sh
+    - ./dotnet-install.sh
 
 install-snyk:
   stage: machine-setup
+  needs:
+    - install-dotnet
   script:
     - brew
-    - npm
 
 build-job:
   stage: build
