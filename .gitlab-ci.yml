@@ -10,6 +10,8 @@ install-dotnet:
     - add-apt-repository ppa:dotnet/backports
     - apt-get update && \ apt-get install -y dotnet-sdk-9.0
     - apt-get install -y dotnet-runtime-9.0
+  tags:
+    - docker
 
 install-snyk:
   stage: machine-setup
