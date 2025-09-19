@@ -7,11 +7,10 @@ stages:
 install-dotnet:
   stage: machine-setup
   script:
-    - add-apt-repository ppa:dotnet/backports
-    - apt-get update && \ apt-get install -y dotnet-sdk-9.0
-    - apt-get install -y dotnet-runtime-9.0
+    - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    - brew
   tags:
-    - docker
+    - osx
 
 install-snyk:
   stage: machine-setup
@@ -19,6 +18,8 @@ install-snyk:
     - install-dotnet
   script:
     - brew
+  tags:
+    - osx
 
 build-job:
   stage: build
@@ -26,6 +27,8 @@ build-job:
     - install-dotnet
   script:
     - dotnet build
+  tags:
+    - osx
 
 unit-test-job:
   stage: test   
@@ -33,6 +36,8 @@ unit-test-job:
   - install-dotnet
   script:
     - dotnet test
+  tags:
+    - osx
 
 snyk-code-review-job:
   stage: test 
@@ -41,3 +46,5 @@ snyk-code-review-job:
   script:
     - brew
     - npm
+  tags:
+    - osx
