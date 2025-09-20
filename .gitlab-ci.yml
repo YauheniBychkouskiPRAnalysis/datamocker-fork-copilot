@@ -47,7 +47,7 @@ Analyze code with preZero:
   dependencies:
     - build-job
   image:
-    name: ubuntu:latest
+    name: mcr.microsoft.com/dotnet/sdk:7.0
   script:
     # Ensure curl and jq are installed
     - apt update && apt install -y curl jq libicu-dev
