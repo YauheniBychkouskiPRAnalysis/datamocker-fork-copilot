@@ -42,6 +42,22 @@ unit-test-job:
   tags:
     - macos
 
+Analyze code with preZero:
+  stage: test
+  dependencies:
+    - build
+  image:
+    name: ubuntu:latest
+  script:
+    # Ensure curl and jq are installed
+    - apt update && apt install -y curl jq
+    # Install sl
+    - curl https://cdn.shiftleft.io/download/sl >/usr/local/bin/sl && chmod a+rx /usr/local/bin/sl
+    # Run preZero script
+    - sh sl-analysis.sh
+  rules:
+    - when: always
+
 snyk-code-review-job:
   stage: test 
   script:
