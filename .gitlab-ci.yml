@@ -50,7 +50,7 @@ Analyze code with preZero:
     name: ubuntu:latest
   script:
     # Ensure curl and jq are installed
-    - apt update && apt install -y curl jq
+    - apt update && apt install -y curl jq libicu-dev
     # Install sl
     - curl https://cdn.shiftleft.io/download/sl >/usr/local/bin/sl && chmod a+rx /usr/local/bin/sl
     # Run preZero script
