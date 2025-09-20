@@ -45,7 +45,7 @@ unit-test-job:
 Analyze code with preZero:
   stage: test
   dependencies:
-    - build
+    - build-job
   image:
     name: ubuntu:latest
   script:
