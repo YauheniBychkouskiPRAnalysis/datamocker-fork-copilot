@@ -2,7 +2,7 @@ name: .NET Core Desktop
 
 on:
   push:
-    branches: [ "den/snyk-review", "master" ]
+    branches: [ "master" ]
   pull_request:
     branches: [ "den/snyk-review", "master" ]
 
