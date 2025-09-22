@@ -9,7 +9,7 @@ on:
 jobs:
   build-job:
     name: Build
-    runs-on: self-hosted
+    runs-on: macos-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -53,6 +53,3 @@ jobs:
 
       - name: Run Snyk Code Test
         run: snyk code test --org=af5d509e-bed8-45d6-8f57-e92b4fca2d41
-
-      - name: List files
-        run: ls -l
