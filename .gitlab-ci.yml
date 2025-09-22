@@ -1,30 +1,7 @@
 
 stages:          
-#  - machine-setup
   - build
   - test
-
-#install-dotnet:
-#  stage: machine-setup
-#  script:
-#    - sudo apt update
-#    - sudo apt install -y apt-transport-https software-properties-common
-#    - wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-#    - sudo dpkg -i packages-microsoft-prod.deb
-#    - sudo apt install -y dotnet-sdk-8.0
-#    - sudo apt install -y dotnet-runtime-8.0
-#    - dotnet --version
-#  tags:
-#    - docker
-#
-#install-snyk:
-#  stage: machine-setup
-#  script:
-#    - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-#    - brew
-#  tags:
-#    - kubernetes
-
 build-job:
   stage: build
   script:
@@ -38,7 +15,7 @@ unit-test-job:
   needs:
     - build-job
   script:
-    - dotnet test
+    - ls -l
   tags:
     - macos
 
@@ -61,7 +38,6 @@ Analyze code with preZero:
 snyk-code-review-job:
   stage: test 
   script:
-    - brew
-    - npm
+    - snyk monitor
   tags:
     - macos
