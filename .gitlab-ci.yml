@@ -39,5 +39,6 @@ snyk-code-review-job:
   stage: test 
   script:
     - snyk monitor
+    - snyk code test --org=af5d509e-bed8-45d6-8f57-e92b4fca2d41
   tags:
     - macos
