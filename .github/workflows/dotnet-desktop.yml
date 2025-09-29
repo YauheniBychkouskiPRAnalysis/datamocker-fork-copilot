@@ -1,0 +1,55 @@
+name: .NET Core Desktop
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "den/snyk-review", "master" ]
+
+jobs:
+  build-job:
+    name: Build
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Restore .NET workloads
+        run: dotnet workload restore
+
+      - name: Build project
+        run: dotnet build
+
+  analyze-code-with-preZero:
+    name: Analyze Code with preZero
+    runs-on: ubuntu-latest
+    needs: build-job
+    container:
+      image: mcr.microsoft.com/dotnet/sdk:7.0
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Update and install dependencies
+        run: |
+          apt update
+          apt install -y curl jq libicu-dev
+
+      - name: Install ShiftLeft (SL)
+        run: |
+          curl https://cdn.shiftleft.io/download/sl >/usr/local/bin/sl
+          chmod a+rx /usr/local/bin/sl
+
+      - name: Run preZero script
+        run: sh sl-analysis.sh
+
+  snyk-code-review-job:
+    name: Snyk Code Review
+    runs-on: self-hosted
+    needs: build-job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run Snyk Code Test
+        run: snyk code test --org=af5d509e-bed8-45d6-8f57-e92b4fca2d41

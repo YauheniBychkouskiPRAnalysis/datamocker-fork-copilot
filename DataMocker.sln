@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataMocker.UITest", "src\DataMocker.UITest\DataMocker.UITest.csproj", "{190E0F1A-9307-415E-A8D8-5969B198B7FB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataMocker.SharedModels", "src\DataMocker.SharedModels\DataMocker.SharedModels.csproj", "{EDD1C76D-74E0-421B-AD81-25D2A64740D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataMocker.Mock", "src\DataMocker.Mock\DataMocker.Mock.csproj", "{3B4AD24E-753A-40B0-A094-D624DC33C14C}"
@@ -41,42 +39,6 @@ Global
 		Release|iPhoneSimulator = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Ad-Hoc|Any CPU.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Ad-Hoc|Any CPU.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Ad-Hoc|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.AppStore|Any CPU.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.AppStore|iPhone.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.AppStore|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.AppStore|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.DebugMock|Any CPU.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.DebugMock|Any CPU.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.DebugMock|iPhone.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.DebugMock|iPhone.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.DebugMock|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.DebugMock|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Mock|Any CPU.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Mock|Any CPU.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Mock|iPhone.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Mock|iPhone.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Mock|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Mock|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Release|iPhone.Build.0 = Release|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{190E0F1A-9307-415E-A8D8-5969B198B7FB}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{EDD1C76D-74E0-421B-AD81-25D2A64740D4}.Ad-Hoc|Any CPU.ActiveCfg = Debug|Any CPU
 		{EDD1C76D-74E0-421B-AD81-25D2A64740D4}.Ad-Hoc|Any CPU.Build.0 = Debug|Any CPU
 		{EDD1C76D-74E0-421B-AD81-25D2A64740D4}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
