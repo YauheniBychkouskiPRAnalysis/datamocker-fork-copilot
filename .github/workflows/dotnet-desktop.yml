@@ -42,6 +42,8 @@ jobs:
 
       - name: Run preZero script
         run: sh sl-analysis.sh
+        env:
+          SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
 
   snyk-code-review-job:
     name: Snyk Code Review
