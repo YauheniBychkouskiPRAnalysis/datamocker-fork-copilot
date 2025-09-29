@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "master" ]
   pull_request:
-    branches: [ "den/snyk-review", "master" ]
+    branches: [ "master" ]
 
 jobs:
   build-job:
