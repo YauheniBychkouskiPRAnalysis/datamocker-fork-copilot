@@ -45,7 +45,7 @@ jobs:
 
   snyk-code-review-job:
     name: Snyk Code Review
-    runs-on: EPBYMINW0F2C
+    runs-on: self-hosted
     needs: build-job
     steps:
       - name: Checkout code
