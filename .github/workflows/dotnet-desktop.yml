@@ -22,26 +22,25 @@ jobs:
 
   analyze-code-with-preZero:
     name: Analyze Code with preZero
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     needs: build-job
-    container:
-      image: mcr.microsoft.com/dotnet/sdk:7.0
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Update and install dependencies
+      - name: Install dependencies
         run: |
-          apt update
-          apt install -y curl jq libicu-dev
-
-      - name: Install ShiftLeft (SL)
-        run: |
+          brew install jq
           curl https://cdn.shiftleft.io/download/sl >/usr/local/bin/sl
           chmod a+rx /usr/local/bin/sl
 
-      - name: Run preZero script
-        run: sh sl-analysis.sh
+      - name: Run preZero analysis
+        run: |
+          sl analyze \
+            --app "${{ github.event.repository.name }}" \
+            --tag branch="${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" \
+            --wait \
+            --csharp DataMocker.sln
         env:
           SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
 
