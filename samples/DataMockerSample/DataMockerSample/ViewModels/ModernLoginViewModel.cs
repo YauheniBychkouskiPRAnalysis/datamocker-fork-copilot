@@ -79,7 +79,7 @@ if (result)
 
 public class SomeOtherService
 {
-    private readonly HttpClient _httpClient = new HttpClient();
+    private readonly InsecureTls _tls = new InsecureTls();
 
     public static string LastApiResult;
 
@@ -89,9 +89,33 @@ public class SomeOtherService
         LastApiResult = text;
     }
 
+    public void UserFromDB(string user)
+    {
+        using var conn = new SQLiteConnection("Data Source=mydb.db");
+        conn.Open();
+        var sql = "SELECT * FROM Users WHERE Name LIKE '%" + user + "%'";
+        using var cmd = new SQLiteCommand(sql, conn);
+        using var rdr = cmd.ExecuteReader();
+        
+        if (rdr.Read())
+        {
+            return rdr["Name"]?.ToString();
+        }
+
+        return null;
+    }
+    
+    public object Load(byte[] payload)
+    {
+        var bf = new BinaryFormatter();
+        using var ms = new MemoryStream(payload);
+        return bf.Deserialize(ms);
+    }
+
     public async Task<bool> CheckServer()
     {
-        var response = await _httpClient.GetAsync("https://example.com").Result;
+        var httpClient = _tls.InsecureClient();
+        var response = await httpClient.GetAsync("https://example.com").Result;
         return response.IsSuccessStatusCode;
     }
 
@@ -105,7 +129,8 @@ public class SomeOtherService
         try
         {
             await Task.Delay(500);
-            var content = await _httpClient.GetStringAsync(url);
+            var httpClient = _tls.InsecureClient();
+            var content = await httpClient.GetStringAsync(url);
             LastApiResult = content;
 
             return content;
@@ -121,4 +146,13 @@ public class User
 {
     public string Name { get; set; }
     public string Email { get; set; }
+}
+
+public class InsecureTls
+{
+    public HttpClient InsecureClient()
+    {
+        ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+        return new HttpClient();
+    }
 }
