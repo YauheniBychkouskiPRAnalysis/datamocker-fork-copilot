@@ -44,6 +44,7 @@ jobs:
             --app "${{ github.event.repository.name }}" \
             --tag branch=${{ steps.extract_branch.outputs.branch_name }} \
             --csharp DataMocker.sln
+            --oss-project-dir /samples/DataMockerSample/DataMockerSample/DataMockerSample.csproj
         env:
           SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
 
