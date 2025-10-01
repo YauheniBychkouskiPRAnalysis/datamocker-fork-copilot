@@ -27,6 +27,7 @@ namespace DataMockerSample.Services
         
         public RestApi(IMockHandlerIntializer mockHandlerInitializer)
         {
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             _client=new HttpClient(mockHandlerInitializer.GetMockerHandler());
         }
 
