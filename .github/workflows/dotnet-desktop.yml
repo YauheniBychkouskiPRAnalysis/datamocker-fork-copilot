@@ -9,7 +9,7 @@ on:
 jobs:
   build-job:
     name: Build
-    runs-on: macos-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -22,7 +22,7 @@ jobs:
 
   analyze-code-with-preZero:
     name: Analyze Code with preZero
-    runs-on: macos-latest
+    runs-on: self-hosted
     needs: build-job
     steps:
       - name: Checkout code

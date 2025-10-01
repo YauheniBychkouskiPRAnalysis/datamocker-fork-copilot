@@ -3,3 +3,4 @@ When performing a code review, focus on readability and avoid nested ternary ope
 When performing a code review, take care about long classes and methods.
 When performing a code review, avoid Magic Numbers.
 When performing a code review, focus on potential runtime exceptions.
+When performing a code review, take care about security issues.
